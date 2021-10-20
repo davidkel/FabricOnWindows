@@ -2,3 +2,6 @@ crypto-config
 data
 notused
 channel-artifacts
+*.key
+*.crt
+main.exe

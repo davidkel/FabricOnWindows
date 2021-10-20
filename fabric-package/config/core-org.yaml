@@ -536,11 +536,6 @@ vm:
 #
 ###############################################################################
 chaincode:
-#    externalBuilders:
-#    - name: windows-batch-node
-#      path: ..\externalBuilderAndLauncher\windowsbatch\node
-#      propagateEnvironment:
-#      - HOME
 
     # The id is used by the Chaincode stub to register the executing Chaincode
     # ID with the Peer and is generally supplied through ENV variables

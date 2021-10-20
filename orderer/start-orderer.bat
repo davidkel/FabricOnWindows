@@ -15,8 +15,9 @@ set ORDERER_GENERAL_TLS_ROOTCAS=..\..\crypto-config\ordererOrganizations\example
 set ORDERER_GENERAL_BOOTSTRAPMETHOD=file
 set ORDERER_GENERAL_BOOTSTRAPFILE=..\..\channel-artifacts\genesis.block
 set ORDERER_FILELEDGER_LOCATION=..\..\data\orderer
-set ORDERER_CONSENSUS_WALDIR=..\..\data\orderer\etcdraft\wal
-set ORDERER_CONSENSUS_SNAPDIR=..\..\data\orderer\etcdraft\wal
+rem these paths are not off the FABRIC_CFG_PATH
+set ORDERER_CONSENSUS_WALDIR=..\data\orderer\etcdraft\wal
+set ORDERER_CONSENSUS_SNAPDIR=..\data\orderer\etcdraft\wal
 set ORDERER_OPERATIONS_LISTENADDRESS=127.0.0.1:8443
 set ORDERER_ADMIN_LISTENADDRESS=127.0.0.1:9443
 

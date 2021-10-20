@@ -1,0 +1,10 @@
+
+Only on run
+{
+  "chaincode_id":"aaaa",
+  "peer_address": "1.2.3.4",
+  "client_cert": "need to check, PEM Encoded TLS Client cert"
+  "client_key": "need to check PEM Encoded TLS client key"
+  "root_cert": "need to check, PEM encoded root cert for server TLS cert"
+  "mspid": "Org1MSP"
+}

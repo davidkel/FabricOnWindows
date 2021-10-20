@@ -1,0 +1,41 @@
+# List of directories to treat as external builders and launchers for
+    # chaincode. The external builder detection processing will iterate over the
+    # builders in the order specified below.
+    externalBuilders:
+      - path: /var/hyperledger/fabric/chaincode/ccs-builder
+        name: ccs-builder
+        propagateEnvironment:
+          - HOME
+          - CORE_PEER_ID
+          - CORE_PEER_LOCALMSPID
+
+            - name: ccs-builder
+              mountPath: /var/hyperledger/fabric/chaincode/ccs-builder/bin
+
+
+initContainers:
+        - name: fabric-ccs-builder
+          image: ghcr.io/hyperledgendary/fabric-ccs-builder
+          imagePullPolicy: IfNotPresent
+          command: [sh, -c]
+          args: ["cp /go/bin/* /var/hyperledger/fabric/chaincode/ccs-builder/bin/"]
+          volumeMounts:
+            - name: ccs-builder
+              mountPath: /var/hyperledger/fabric/chaincode/ccs-builder/bin
+
+
+
+
+
+
+chaincode:
+  externalBuilders:
+  - name: my-golang-builder
+    path: /builders/golang
+    propagateEnvironment:
+    - GOPROXY
+    - GONOPROXY
+    - GOSUMDB
+    - GONOSUMDB
+  - name: noop-builder
+    path: /builders/binary

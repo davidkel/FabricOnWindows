@@ -10,7 +10,7 @@ set CORE_PEER_TLS_ROOTCERT_FILE=..\..\crypto-config\peerOrganizations\org2.examp
 set CORE_PEER_ID=peer0.org2.example.com
 set CORE_PEER_ADDRESS=127.0.0.1:7055
 set CORE_PEER_LISTENADDRESS=127.0.0.1:7055
-set CORE_PEER_CHAINCODEADDRESS=host.docker.internal:7056
+set CORE_PEER_CHAINCODEADDRESS=127.0.0.1:7056
 set CORE_PEER_CHAINCODELISTENADDRESS=127.0.0.1:7056
 rem bootstrap peer is myself
 set CORE_PEER_GOSSIP_BOOTSTRAP=127.0.0.1:7055
@@ -28,6 +28,9 @@ rem set CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=127.0.0.1:5986
 rem set CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=admin
 rem set CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=password
 rem docker run --publish 5986:5984 --detach -e COUCHDB_USER=admin -e COUCHDB_PASSWORD=password --name couchdb3 couchdb:3.1.1
+
+rem setup an external builder
+set CORE_CHAINCODE_EXTERNALBUILDERS=[{name: windows-batch-node, path: ..\externalBuilderAndLauncher\windowsbatch\node}]
 
 rem start peer
 peer node start
